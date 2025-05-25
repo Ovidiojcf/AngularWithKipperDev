@@ -3,4 +3,11 @@
   <h2 style="font-size: larger; color:rgb(47, 46, 46)">Welcome to the Angular App</h2>
   <p style="font-size: larger; color:rgb(47, 46, 46) ">My State: <a style="color: blue;">{{myBoolean}}</a></p>
   <button (click)="handleBoolean()" style="color: rgb(47, 46, 46); border: 2px solid rgb(47, 46, 46); padding: 8px 16px; border-radius: 4px;">Set State</button>
+
+  <div>
+    <h2 style="font-size: larger; color:rgb(47, 46, 46) ">List from home.componets.ts</h2>
+    @for (item of myData; track $index) {
+      <p style="font-size: larger; color:rgb(47, 46, 46) ">{{item.name}}</p>
+    }
+  </div>
 </section>
