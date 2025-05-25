@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { SubmitFormService } from '../../services/submit-form.service';
 
 @Component({
@@ -8,6 +8,10 @@ import { SubmitFormService } from '../../services/submit-form.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  @Input() myProps!: string; // Add an input property to receive data from the parent component
+  @Output() myEmit = new EventEmitter<string>(); // Add an output property to emit data to the parent component
+
+
 // Add a state variable to render in home.component.html
   myBoolean: boolean = false;
   private mySubmit = inject(SubmitFormService);
@@ -32,6 +36,7 @@ export class HomeComponent {
   // Add a method to submit data to the backend
   handleSubmit() {
     this.mySubmit.submitToBackend('This is my data');
+    this.myEmit.emit('Data submitted successfully!'); // Emit an event to the parent component
   }
 
 }
